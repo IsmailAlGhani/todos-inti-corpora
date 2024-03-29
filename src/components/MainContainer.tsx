@@ -200,6 +200,7 @@ function MainContainer(): JSX.Element {
       <div className="flex flex-col gap-4 pb-4 h-[90vh] w-full items-center overflow-y-scroll scrollbar-hide">
         <div className="flex flex-col-reverse items-center sm:flex-row sm:justify-between gap-2 w-full py-4">
           <Input
+            data-testid={`filter-input`}
             placeholder="Filter title..."
             value={
               (table.getColumn("todoName")?.getFilterValue() as string) ?? ""
@@ -236,7 +237,11 @@ function MainContainer(): JSX.Element {
                           <div className="grid grid-cols-4 items-center">
                             <FormLabel>Todo Name</FormLabel>
                             <FormControl className="col-span-3">
-                              <Input placeholder="Todo Name..." {...field} />
+                              <Input
+                                data-testid={`todoName-form`}
+                                placeholder="Todo Name..."
+                                {...field}
+                              />
                             </FormControl>
                           </div>
                           <FormMessage />
@@ -245,7 +250,9 @@ function MainContainer(): JSX.Element {
                     />
                     <DialogFooter>
                       <DialogClose asChild>
-                        <Button type="submit">Create</Button>
+                        <Button data-testid={`todoName-form`} type="submit">
+                          Create
+                        </Button>
                       </DialogClose>
                     </DialogFooter>
                   </form>

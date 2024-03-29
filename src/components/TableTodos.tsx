@@ -93,7 +93,7 @@ export const columnsTodo: (
         return (
           <div className="flex justify-center w-full">
             <DropdownMenu>
-              <DropdownMenuTrigger asChild>
+              <DropdownMenuTrigger data-testid={`actions-${todo._id}`} asChild>
                 <Button variant="ghost" className="h-8 w-8 p-0">
                   <span className="sr-only">Open menu</span>
                   <MoreHorizontal className="h-4 w-4" />
@@ -105,6 +105,7 @@ export const columnsTodo: (
                   <>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem
+                      data-testid={`action-update-${todo._id}`}
                       onClick={() =>
                         handleUpdate({
                           id: todo._id,
@@ -118,6 +119,7 @@ export const columnsTodo: (
                 ) : null}
                 <DropdownMenuSeparator />
                 <DropdownMenuItem
+                  data-testid={`action-delete-${todo._id}`}
                   onClick={() =>
                     handleUpdate({ id: todo._id, type: typeModalAction.DELETE })
                   }
